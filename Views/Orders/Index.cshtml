@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Orders>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="nav-item">Список заказов</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Orders" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus"></i> &nbsp; Создать новый заказ
+            </a>
+        </div>
+    </div>
+    <br /><br />
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Номер заказа
+            </th>
+            <th>
+                Город отправителя
+            </th>
+            <th>
+                Адрес отправителя
+            </th>
+            <th>
+                Город получателя
+            </th>
+            <th>
+                Адрес получателя
+            </th>
+            <th>
+                Вес груза, кг.
+            </th>
+            <th>
+                Дата забора груза
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td>
+                    @obj.Id
+                </td>
+                <td>
+                    @obj.SendСity
+                </td>
+                <td>
+                    @obj.SendAddress
+                </td>
+                <td>
+                    @obj.GetСity
+                </td>
+                <td>
+                    @obj.GetAddress
+                </td>
+                <td>
+                    @obj.Weight
+                </td>
+                <td>
+                    @obj.Date
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
